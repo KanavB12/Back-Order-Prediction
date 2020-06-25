@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr>
+    <head>
+        <meta charset="utf-8">
+        <title>Back Order Predictor</title>
+        <link rel="stylesheet" type="text/css" href="/style.css">
+    </head>
+
+    <body>
+
+        <!-- Website Title-->
+        <div class="container">
+            <h2 class = "container-heading"><span class="heading_font">Backorder Predictor</span></h2>
+            <div class="description">
+                <p>A Machine Learning Web App, Built with Flask.</p>
+            </div>
+        </div>
+
+        <!-- Text Area -->
+        <div class="ml-container">
+            <form action="{{ url_for('predict') }}" method="POST">
+                <input class="form-input" type="text" name="National Inventory" placeholder="Current inventory level eg. 2" required><br>
+                <input class="form-input" type="text" name="Lead Time" placeholder="transit time eg. 9" required><br>
+                <input class="form-input" type="text" name="Transit Quantity" placeholder="Amount of product in transit from source eg. 0" required><br>
+                <input class="form-input" type="text" name="3 Months forecast" placeholder="Forecast sales for the next 3 months eg. 0" required><br>
+                <input class="form-input" type="text" name="6 Months forecast" placeholder="Forecast sales for the next 6 months eg. 0" required><br>
+                <input class="form-input" type="text" name="9 Months forecast" placeholder="Forecast sales for the next 9 months eg. 0" required><br>
+                <input class="form-input" type="text" name="1 Month Sales" placeholder="Sales quantity for the prior 1 month time period eg. 0" required><br>
+                <input class="form-input" type="text" name="3 Month Sales" placeholder="Sales quantity for the prior 3 month time period eg. 0" required><br>
+                <input class="form-input" type="text" name="6 Month Sales" placeholder="Sales quantity for the prior 6 month time period eg. 0" required><br>
+                <input class="form-input" type="text" name="9 Month Sales" placeholder="Sales quantity for the prior 9 month time period eg. 0" required><br>
+                <input class="form-input" type="text" name="Minimum Stock" placeholder="Minimum recommended amount of stock eg. 3" required><br>
+                <input class="form-input" type="text" name="Pieces past due" placeholder="Parts overdue from source eg. 0" required><br>
+                <input class="form-input" type="text" name="6 month performance" placeholder="Source performance for prior 6 month period eg. 0.85" required><br>
+                <input class="form-input" type="text" name="12 month performance" placeholder="Source performance for prior 12 month period eg. 0.85" required><br>
+                <input class="form-input" type="text" name="Local quantity" placeholder="Amount of stock orders overdue eg. 0" required><br><br>
+
+                
+
+                <input type="checkbox" name="Potential Issue" value="1" /> Potential Issue
+                <input type="checkbox" name="Deck risk" value="1" /> Deck Risk
+                <input type="checkbox" name="Oe constraint" value="1" /> Oe constraint
+                <input type="checkbox" name="Ppap risk" value="1" /> Ppap risk
+                <input type="checkbox" name="Rev stop" value="1" /> Rev stop
+                <input type="checkbox" name="Stop auto buy" value="1" /> stop auto buy<br><br><br>
+                <input type="submit" class="my_cta_button" value="Predict">
+            </form>
+        </div>
+    </body>
+</html>
